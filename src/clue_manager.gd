@@ -9,6 +9,7 @@ var collected_clue: Dictionary[String, String] = {}
 var collected_gun: bool = false
 var game_over_cause: String = ""
 var paused: bool = false
+
 func _ready() -> void:
 	instance = self
 

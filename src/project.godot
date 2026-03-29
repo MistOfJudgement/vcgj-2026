@@ -15,6 +15,10 @@ run/main_scene="uid://cep3m5pufu0th"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://dv5bfn2akjs70"
 
+[autoload]
+
+Audio="*uid://ckbg6luj1fbgo"
+
 [gui]
 
 theme/custom="uid://dmhmeu371deqa"

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ckbg6luj1fbgo"]
+
+[ext_resource type="AudioStream" uid="uid://cmkw23tphro8i" path="res://sneakingmusic.ogg" id="1_ml5b6"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" unique_id=195107012]
+stream = ExtResource("1_ml5b6")
+volume_db = -13.607
+autoplay = true

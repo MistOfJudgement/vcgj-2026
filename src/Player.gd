@@ -30,4 +30,4 @@ func _process(delta: float) -> void:
 
 func show_gun():
 	print("GUNNNNNNN")
-	$Sprite2D2.visible = true
+	$Sprite2D/Sprite2D2.visible = true

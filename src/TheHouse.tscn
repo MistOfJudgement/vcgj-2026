@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://cjoux3pdnqwhm" path="res://map_design.png" id="1_3yu1u"]
 [ext_resource type="PackedScene" uid="uid://bsaypymkbk6yq" path="res://PauseScreen.tscn" id="1_6byqa"]
 [ext_resource type="PackedScene" uid="uid://bu23tt1iyfxv2" path="res://Player.tscn" id="2_yq4or"]
-[ext_resource type="Texture2D" uid="uid://duxm54mgdtki1" path="res://icon.svg" id="3_cjob1"]
 [ext_resource type="PackedScene" uid="uid://dou6c1gp41kwk" path="res://NotPlayer.tscn" id="3_swvm1"]
 [ext_resource type="PackedScene" uid="uid://dxskje5sj72qx" path="res://GameOver.tscn" id="4_d2m2k"]
+[ext_resource type="Texture2D" uid="uid://vf6svet7fcps" path="res://note.png" id="4_lf5on"]
 [ext_resource type="PackedScene" uid="uid://delmovy5big2s" path="res://ClueInteractable.tscn" id="4_yq4or"]
 [ext_resource type="TileSet" uid="uid://deur7dnn7no6" path="res://mansion_tiles.tres" id="5_d2m2k"]
 [ext_resource type="PackedScene" uid="uid://b1dayuiwia8yi" path="res://SafeLock.tscn" id="6_mjmsh"]
@@ -40,13 +40,9 @@ visible = false
 answer = "1231"
 
 [node name="PauseButton" type="Button" parent="CanvasLayer" unique_id=1386384697]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -136.0
+offset_right = 136.0
 offset_bottom = 136.0
-grow_horizontal = 0
-icon = ExtResource("3_cjob1")
+icon = ExtResource("4_lf5on")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=378454075]
 navigation_polygon = SubResource("NavigationPolygon_r0heo")
@@ -64,18 +60,19 @@ scale = Vector2(2.9776516, 2.9776516)
 texture = ExtResource("1_3yu1u")
 
 [node name="Player" parent="NavigationRegion2D" unique_id=715133903 instance=ExtResource("2_yq4or")]
-position = Vector2(284, -156)
+position = Vector2(-219, 2219)
 speed = 600.0
 
 [node name="Camera2D" type="Camera2D" parent="NavigationRegion2D/Player" unique_id=102323751]
 position = Vector2(-3, 7)
-zoom = Vector2(0.755, 0.755)
+zoom = Vector2(0.59, 0.59)
 
 [node name="Chaz" parent="NavigationRegion2D" unique_id=1723388702 node_paths=PackedStringArray("patrolNodeParent") instance=ExtResource("3_swvm1")]
 position = Vector2(252, 1817)
 scale = Vector2(0.9, 0.9)
 patrolNodeParent = NodePath("../PatrolChaz")
 tex = ExtResource("9_1nbfr")
+isTarget = true
 
 [node name="Belle" parent="NavigationRegion2D" unique_id=1404234148 node_paths=PackedStringArray("patrolNodeParent") instance=ExtResource("3_swvm1")]
 position = Vector2(1492.0001, 1686)

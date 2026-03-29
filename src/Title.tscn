@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cpbip6n2yc2vm"]
+[gd_scene format=3 uid="uid://cep3m5pufu0th"]
 
-[ext_resource type="Script" path="res://title.gd" id="1_c0dwi"]
+[ext_resource type="Script" uid="uid://ciy31ewsewjsm" path="res://title.gd" id="1_c0dwi"]
 [ext_resource type="Texture2D" uid="uid://ctcso2p0n1nbn" path="res://banner.png" id="2_ax32a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_quvj1"]

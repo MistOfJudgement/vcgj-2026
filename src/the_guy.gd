@@ -3,7 +3,10 @@ extends CharacterBody2D
 @export var patrolNodeParent: Node2D
 @export var waitTime := 3
 @export var walkSpeed = 250
+@export var chaseSpeed := 590
+var speed: float = walkSpeed
 @export var tex: Texture
+@export var isTarget: bool = false
 @onready var NavAgent = $NavigationAgent2D
 @onready var waitTimer = $WaitTimer
 @onready var raychecks: Array[RayCast2D] = [
@@ -12,6 +15,7 @@ $Node2D/RayCast2D, $Node2D/RayCast2D2, $Node2D/RayCast2D3
 
 @onready var sprite = $Sprite2D
 @onready var facingRoot = $Node2D
+
 enum NpcState {
 	Patrol,
 	Chase,
@@ -33,7 +37,7 @@ func _ready() -> void:
 func start_patrol() -> void:
 	if not patrolNodeParent: return
 	patrolIndex += 1
-	
+	speed = walkSpeed
 	if patrolIndex >= patrolNodeParent.get_child_count(): patrolIndex = 0
 	if patrolNodeParent.get_child_count() > 0:
 		print("at index", patrolIndex)
@@ -81,6 +85,7 @@ func scan_for_player() -> CollisionObject2D:
 	return null
 func enter_chase(target: CollisionObject2D) -> void:
 	print("Enter Chase")
+	speed = chaseSpeed
 	currentState = NpcState.Chase
 	chaseTarget = target
 	lastSeen = target.global_position
@@ -104,7 +109,7 @@ func _on_navigation_agent_2d_navigation_finished() -> void:
 
 var tween: Tween
 func navMove(turnSpeed: float = 0.3):
-	velocity = get_dir() * walkSpeed
+	velocity = get_dir() * speed
 	move_and_slide()
 	turn(get_angle(), turnSpeed)
 	
@@ -117,7 +122,7 @@ func turn(angle: float, turnSpeed: float = 0.3):
 	tween.tween_property(facingRoot, "rotation", lerp_angle(facingRoot.rotation, angle, 1), turnSpeed)
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	InventoryManager.instance.set_game_over("caught by a guy")
+	InventoryManager.instance.set_game_over("You were caught by %s" % name)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
@@ -133,8 +138,10 @@ func _on_kill_zone_input_event(viewport: Node, event: InputEvent, shape_idx: int
 			query.collision_mask = 1 << 0 # only collide with the default layer
 			# if no obstacles in the way, win
 			if not space_state.intersect_ray(query):
-				InventoryManager.instance.set_game_over("win")
-			
+				if isTarget:
+					InventoryManager.instance.set_game_over("You WIN. You brought your father back to life by shooting his killer!")
+				else:
+					InventoryManager.instance.set_game_over("You LOSE. %s wasn't your father's killer" % name)
 
 
 func _on_kill_zone_mouse_entered() -> void:

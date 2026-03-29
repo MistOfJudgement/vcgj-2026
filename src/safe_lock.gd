@@ -21,21 +21,24 @@ func _ready() -> void:
 	buttons[11].pressed.connect(func (): visible = false)
 	
 	
-
+func _process(delta: float) -> void:
+	InventoryManager.instance.paused = visible
+	
 func button_press(number):
 	if len(label.text) == 4:
 		return
 	label.text = label.text+ ("%d" % (number))
 	check_answer()
-
 func reset():
 	label.text = ""
 func check_answer():
 	if label.text == answer:
 		InventoryManager.instance.collect_gun()
 		self.visible = false
+		InventoryManager.instance.paused = false
 
 
 func _on_safe_clicked() -> void:
 	if InventoryManager.instance.collected_gun: return
 	visible = true
+	InventoryManager.instance.paused = true

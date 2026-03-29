@@ -1,6 +1,27 @@
 [gd_scene format=3 uid="uid://7kso5gghhvf7"]
 
-[ext_resource type="Texture2D" uid="uid://duxm54mgdtki1" path="res://icon.svg" id="1_ssa1u"]
+[ext_resource type="Script" uid="uid://btqtyvvm26ggp" path="res://character_info.gd" id="1_62p1r"]
+[ext_resource type="Texture2D" uid="uid://ciyripl2auo13" path="res://suspect/chaz.png" id="1_k577m"]
+[ext_resource type="Texture2D" uid="uid://c4viojqk4wk7y" path="res://suspect/bella.png" id="2_62p1r"]
+[ext_resource type="Texture2D" uid="uid://ceat02b32gra8" path="res://suspect/reginald.png" id="3_t13i1"]
+[ext_resource type="Texture2D" uid="uid://dtqxhdnoc4tol" path="res://suspect/macintosh.png" id="4_uvhd1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ssa1u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_alj0r"]
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_qaww8"]
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_k577m"]
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_t13i1"]
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_62p1r"]
+font_color = Color(1, 1, 0, 1)
 
 [node name="CharacterInfo" type="Panel" unique_id=1230768341]
 anchors_preset = 15
@@ -8,6 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_62p1r")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=630240308]
 layout_mode = 1
@@ -17,32 +39,105 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1284833656]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=674362295]
+custom_minimum_size = Vector2(38.79, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "At 8 PM last night, your father, ZIRQUADECIM VIOQUALIA-FISHER was murdered in a manner most foul by a member of the CARNEFELLOW FAMILY. He was SHOT THROUGH THE CHEST. Unfortunately for them, they neglected one fact: he was, in fact, a vampire. If you can shoot the person who killed him with your GOLDEN GUN he will return brilliantly to unlife in the land of the living. Unfortunately, you must first liberate it from their clutches to do so. Good luck!"
+label_settings = SubResource("LabelSettings_ssa1u")
+autowrap_mode = 3
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1577566800]
 layout_mode = 2
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=736903148]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=20618353]
-layout_mode = 2
-text = "this someone idk"
+size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1504506622]
 layout_mode = 2
-texture = ExtResource("1_ssa1u")
+texture = ExtResource("1_k577m")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=20618353]
+layout_mode = 2
+size_flags_vertical = 1
+text = "CHAZ CARNEFELLOW, DAY TRADER AND FATHER OF THREE.
+Patriarch of the Carnefellow Family, slowly throwing away their fortune on random companies in the stock exchange
+Favorite Drink: Perrier Martini (Don’t Ask)
+Favorite Time of Day: Money
+Favorite Word: Chauvanism"
+label_settings = SubResource("LabelSettings_alj0r")
+autowrap_mode = 3
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1690061094]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=2102398634]
 layout_mode = 2
-texture = ExtResource("1_ssa1u")
+texture = ExtResource("2_62p1r")
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=990810812]
 layout_mode = 2
-text = "this someone idk"
+text = "BELLA CARNEFELLOW, VICTORIAN NOBLE???
+Daughter of Chaz Carnefellow with a confusing fashion sense and a penchant for lying
+Favorite Drink: Hard Whiskey, but only when nobody is watching
+Favorite Time of Day: 3 PM
+Favorite Word: Subterfuge"
+label_settings = SubResource("LabelSettings_qaww8")
+autowrap_mode = 3
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=1050208547]
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1864958982]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=563630834]
+layout_mode = 2
+texture = ExtResource("3_t13i1")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1592396230]
+layout_mode = 2
+text = "REGINALD CARNEFELLOW, FREELANCE CYBERSECURITY SPECIALIST
+Sibling of Bella Carnefellow, a quiet kid with an active mind and not much to say. It’s always the quiet ones…
+Favorite Drink: Milk
+Favorite Time of Day: Whenever everybody else is asleep
+Favorite Word: Solitude"
+label_settings = SubResource("LabelSettings_k577m")
+autowrap_mode = 3
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1158907752]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=1934401816]
+layout_mode = 2
+texture = ExtResource("4_uvhd1")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=1772459022]
+layout_mode = 2
+text = "MACINTOSH CARNEFELLOW, BODYBUILDER AND BLUE COLLAR LARPER
+Son of Chaz Carnefellow, a man’s man by extreme intent. Pretends to have a job in the labor force
+Favorite Drink: Hard Whiskey, but only when someone is watching
+Favorite Time of Day: 6 AM
+Favorite Word: Hard Whiskey, but only when someone is watching"
+label_settings = SubResource("LabelSettings_t13i1")
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1197293894]
+custom_minimum_size = Vector2(38.79, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "WASD to Move. ESC to pause and read notes. Left Click to interact."
+label_settings = SubResource("LabelSettings_62p1r")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=1050208547]
 layout_mode = 2
 text = "Start Game"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
