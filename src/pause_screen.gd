@@ -32,3 +32,7 @@ func _on_title_pressed() -> void:
 
 func _on_resume_pressed() -> void:
 	visible = false
+
+
+func _on_pause_button_pressed() -> void:
+	visible = !visible

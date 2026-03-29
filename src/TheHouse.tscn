@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cjoux3pdnqwhm" path="res://map_design.png" id="1_3yu1u"]
 [ext_resource type="PackedScene" uid="uid://bsaypymkbk6yq" path="res://PauseScreen.tscn" id="1_6byqa"]
 [ext_resource type="PackedScene" uid="uid://c3x6smsyb2ydn" path="res://Player.tscn" id="2_yq4or"]
+[ext_resource type="Texture2D" uid="uid://duxm54mgdtki1" path="res://icon.svg" id="3_cjob1"]
 [ext_resource type="PackedScene" uid="uid://dou6c1gp41kwk" path="res://NotPlayer.tscn" id="3_swvm1"]
 [ext_resource type="PackedScene" uid="uid://cqrdlb1t68g4o" path="res://ClueInteractable.tscn" id="4_yq4or"]
 [ext_resource type="Texture2D" uid="uid://gvq4hesjcde2" path="res://OverworldTileset64.png" id="5_swvm1"]
@@ -134,6 +135,15 @@ visible = false
 [node name="SafeLock" parent="CanvasLayer" unique_id=1989305654 instance=ExtResource("6_mjmsh")]
 visible = false
 
+[node name="PauseButton" type="Button" parent="CanvasLayer" unique_id=1386384697]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -136.0
+offset_bottom = 136.0
+grow_horizontal = 0
+icon = ExtResource("3_cjob1")
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=378454075]
 navigation_polygon = SubResource("NavigationPolygon_r0heo")
 
@@ -182,105 +192,71 @@ position = Vector2(1592, 1696)
 position = Vector2(-650, -127)
 scale = Vector2(0.9, 0.9)
 
-[node name="Clue1" parent="NavigationRegion2D" unique_id=407064830 instance=ExtResource("4_yq4or")]
+[node name="Clue1" parent="NavigationRegion2D" unique_id=407064830 node_paths=PackedStringArray("destinationArea") instance=ExtResource("4_yq4or")]
 position = Vector2(2093, 1820)
-text = "Oh, dearest Miriam, you would not believe the trouble I have been
-through in recent days! Though father promised me that he would
-attend the ball, he simply drove me there in his automobile at 6:00
-PM and then left! Truly, in my time of torment, there is only you,
-for me, even though our respective status tear us apart.
+text = "Oh, dearest Miriam, you would not believe the trouble I have been through in recent days! Though father promised me that he would attend the ball, he simply drove me there in his automobile at 6:00 PM and then left! Truly, in my time of torment, there is only you, for me, even though our respective status tear us apart.
 Sincerely,
 Bella"
+destinationArea = NodePath("../../CanvasLayer/PauseButton")
 
-[node name="Clue2" parent="NavigationRegion2D" unique_id=1920973038 instance=ExtResource("4_yq4or")]
+[node name="Clue2" parent="NavigationRegion2D" unique_id=1920973038 node_paths=PackedStringArray("destinationArea") instance=ExtResource("4_yq4or")]
 position = Vector2(-1197, 2308)
-text = "Paige, my one and only beloved, every day I appreciate the skill you
-bring to tidying our humble mansion more. You would not believe the
-trouble I’ve been through finding good help to clean up our little
-escapade the other night! Three people can spill so much blood… but I
-would do it again for you my dear. I shall think of you always. You
-are the only one for me.
+text = "Paige, my one and only beloved, every day I appreciate the skill you bring to tidying our humble mansion more. You would not believe the trouble I’ve been through finding good help to clean up our little escapade the other night! Three people can spill so much blood… but I would do it again for you my dear. I shall think of you always. You are the only one for me.
 Sincerely,
 Bella"
+destinationArea = NodePath("../../CanvasLayer/PauseButton")
 
-[node name="Clue3" parent="NavigationRegion2D" unique_id=87679880 instance=ExtResource("4_yq4or")]
+[node name="Clue3" parent="NavigationRegion2D" unique_id=87679880 node_paths=PackedStringArray("destinationArea") instance=ExtResource("4_yq4or")]
 position = Vector2(82, -452)
-text = "Stephanie, I am sorry I could not meet with you last night. Father
-and I had plans to go to a wonderful Victorian Re-enactment Ball that
-I had almost forgotten about! It was a wonderful time, and I stayed
-well into the night at 12 AM, though I missed you dearly the whole
-time. Shall we reschedule for another time? I would ever so hate to
-fall out of your favor-- despite your position in the employ of our
-family, I look at you as though you are the only girl in the world.
+text = "Stephanie, I am sorry I could not meet with you last night. Father and I had plans to go to a wonderful Victorian Re-enactment Ball that I had almost forgotten about! It was a wonderful time, and I stayed well into the night at 12 AM, though I missed you dearly the whole time. Shall we reschedule for another time? I would ever so hate to fall out of your favor-- despite your position in the employ of our family, I look at you as though you are the only girl in the world.
 Sincerely,
 Bella"
+destinationArea = NodePath("../../CanvasLayer/PauseButton")
 
-[node name="Clue4" parent="NavigationRegion2D" unique_id=857561954 instance=ExtResource("4_yq4or")]
+[node name="Clue4" parent="NavigationRegion2D" unique_id=857561954 node_paths=PackedStringArray("destinationArea") instance=ExtResource("4_yq4or")]
 position = Vector2(1676, -1292)
 text = "Mr. Chaz Carnefellow,
-We, your lawyers, implore you to cease business with a certain
-accountant. Do not ask how we have this information-- you have more
-important things to worry about. Mr. Vioqualia-Fisher’s under the
-table accounting practices have put us and ours at a loss for years
-now. Should you manage to get him out of the picture, all will be
-forgiven. Should you fail, we will pursue you within and without the
-force of the law.
+We, your lawyers, implore you to cease business with a certain accountant. Do not ask how we have this information-- you have more important things to worry about. Mr. Vioqualia-Fisher’s under the table accounting practices have put us and ours at a loss for years now. Should you manage to get him out of the picture, all will be forgiven. Should you fail, we will pursue you within and without the force of the law.
 Sincerely,
 Your Mafioso Lawyers"
+destinationArea = NodePath("../../CanvasLayer/PauseButton")
 
-[node name="Clue5" parent="NavigationRegion2D" unique_id=500844468 instance=ExtResource("4_yq4or")]
+[node name="Clue5" parent="NavigationRegion2D" unique_id=500844468 node_paths=PackedStringArray("destinationArea") instance=ExtResource("4_yq4or")]
 position = Vector2(-402, 1123)
 text = "Macintosh,
-For the love of god, you have to get better passwords. Not every
-single thing you own can be locked behind your birthday. You are the
-member of an old money family, your internet safety cannot begin and
-end with a date that anyone can find by looking it up on Wikipedia.
-It’s a major holiday, too! 12/31 is like, the first thing that
-someone would guess, especially if Father is going to be entrusting
-you with a mysterious safe to keep locked up in your room.
+For the love of god, you have to get better passwords. Not every single thing you own can be locked behind your birthday. You are the member of an old money family, your internet safety cannot begin and end with a date that anyone can find by looking it up on Wikipedia. It’s a major holiday, too! 12/31 is like, the first thing that someone would guess, especially if Father is going to be entrusting you with a mysterious safe to keep locked up in your room.
 - Reginald"
+destinationArea = NodePath("../../CanvasLayer/PauseButton")
 
-[node name="Clue6" parent="NavigationRegion2D" unique_id=1230103675 instance=ExtResource("4_yq4or")]
+[node name="Clue6" parent="NavigationRegion2D" unique_id=1230103675 node_paths=PackedStringArray("destinationArea") instance=ExtResource("4_yq4or")]
 position = Vector2(419, 1999.0001)
 scale = Vector2(0.8137789, 0.8435629)
-text = "Macintosh,
-Hey big guy! You know you’re my favorite! So I like to be informed of
-what’s going on in your life, ya dig? Ya feel? So if you could like,
-tell people when you’re going out to wander around in the woods for 6
-hours at night like you did last night, so I don’t have to send Good
-ol’ Reggie to chase after you for hours at a time to make sure you
-haven’t been kidnapped by mafiosos or something, I would really
-appreciate it! Love ya kid.
+text = "Macintosh, Hey big guy! You know you’re my favorite! So I like to be informed of what’s going on in your life, ya dig? Ya feel? So if you could like, tell people when you’re going out to wander around in the woods for 6 hours at night like you did last night, so I don’t have to send Good ol’ Reggie to chase after you for hours at a time to make sure you haven’t been kidnapped by mafiosos or something, I would really appreciate it! Love ya kid.
 - Chaz"
+destinationArea = NodePath("../../CanvasLayer/PauseButton")
 
-[node name="Clue7" parent="NavigationRegion2D" unique_id=1136841907 instance=ExtResource("4_yq4or")]
+[node name="Clue7" parent="NavigationRegion2D" unique_id=1136841907 node_paths=PackedStringArray("destinationArea") instance=ExtResource("4_yq4or")]
 position = Vector2(507, 2032)
 scale = Vector2(0.61262107, 0.61262107)
 text = "Dad,
 No.
 Mac"
+destinationArea = NodePath("../../CanvasLayer/PauseButton")
 
-[node name="Clue8" parent="NavigationRegion2D" unique_id=1038475898 instance=ExtResource("4_yq4or")]
+[node name="Clue8" parent="NavigationRegion2D" unique_id=1038475898 node_paths=PackedStringArray("destinationArea") instance=ExtResource("4_yq4or")]
 position = Vector2(579, -836)
-text = "Reginald, for the love of god, STOP leaving your rifles around the
-house! Everybody knows that the M19 is for PANSIES! What will guests
-think if they come over??? Clean up your act and act like a real
-man!!
+text = "Reginald, for the love of god, STOP leaving your rifles around the house! Everybody knows that the M19 is for PANSIES! What will guests think if they come over??? Clean up your act and act like a real man!!
 - Chaz"
+destinationArea = NodePath("../../CanvasLayer/PauseButton")
 
-[node name="Clue9" parent="NavigationRegion2D" unique_id=40423912 instance=ExtResource("4_yq4or")]
+[node name="Clue9" parent="NavigationRegion2D" unique_id=40423912 node_paths=PackedStringArray("destinationArea") instance=ExtResource("4_yq4or")]
 position = Vector2(1889, 1238)
 text = "Dear Diary,
-Father is unreasonably asking me to hide this strange safe in my room
-again. Supposedly it contains something important in it that he needs
-to keep the family safe. Surely if it was so important he could have
-told me what was in it? I just know he approached me at 9 PM last
-night with the safe in hand, and told me I must not let anybody
-access it. I fear for what this could mean for him. But he is a man.
-He can fight his own battles.
+Father is unreasonably asking me to hide this strange safe in my room again. Supposedly it contains something important in it that he needs to keep the family safe. Surely if it was so important he could have told me what was in it? I just know he approached me at 9 PM last night with the safe in hand, and told me I must not let anybody access it. I fear for what this could mean for him. But he is a man. He can fight his own battles.
 - Macintosh"
+destinationArea = NodePath("../../CanvasLayer/PauseButton")
 
-[node name="Clue10" parent="NavigationRegion2D" unique_id=791022163 instance=ExtResource("4_yq4or")]
+[node name="Clue10" parent="NavigationRegion2D" unique_id=791022163 node_paths=PackedStringArray("destinationArea") instance=ExtResource("4_yq4or")]
 position = Vector2(-710, 585)
 text = "O Blackest Of Demon Swords,
 I Beseach Thee With Thy Onyx Flames
@@ -291,6 +267,7 @@ And Do Nut Understant
 my,
 soul………
 - Cursed Demon Reginald’s Unfinished Poetry Collection"
+destinationArea = NodePath("../../CanvasLayer/PauseButton")
 
 [node name="Safe" parent="NavigationRegion2D" unique_id=1532287082 instance=ExtResource("4_yq4or")]
 position = Vector2(1622, 1249)
@@ -298,5 +275,6 @@ position = Vector2(1622, 1249)
 [node name="InventoryManager" type="Node2D" parent="NavigationRegion2D" unique_id=1979203131]
 script = ExtResource("6_r0heo")
 
+[connection signal="pressed" from="CanvasLayer/PauseButton" to="CanvasLayer/PauseScreen" method="_on_pause_button_pressed"]
 [connection signal="clicked" from="NavigationRegion2D/Safe" to="CanvasLayer/SafeLock" method="_on_safe_clicked"]
 [connection signal="clue_collected" from="NavigationRegion2D/InventoryManager" to="CanvasLayer/PauseScreen" method="_on_inventory_manager_clue_collected"]
