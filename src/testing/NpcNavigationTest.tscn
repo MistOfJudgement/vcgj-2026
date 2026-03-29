@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://qp8by6kbn143"]
+
+[ext_resource type="Script" uid="uid://cc45j7js5o58g" path="res://the_guy.gd" id="1_3mhcr"]
+[ext_resource type="Texture2D" uid="uid://duxm54mgdtki1" path="res://icon.svg" id="2_1hv8r"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_c0glr"]
+vertices = PackedVector2Array(1147.8438, 639.96094, 14.921875, 636.03125, 10.0703125, 8.9921875, 1138.1484, 8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(10, 18, 1148, -2, 1158, 650, 5, 646)])
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mhcr"]
+radius = 62.008064
+
+[node name="NpcNavigationTest" type="Node2D" unique_id=893168181]
+metadata/_edit_lock_ = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1914356637]
+position = Vector2(-3, 1)
+navigation_polygon = SubResource("NavigationPolygon_c0glr")
+
+[node name="ThisGuy" type="CharacterBody2D" parent="." unique_id=448759199 node_paths=PackedStringArray("patrolNodeParent")]
+position = Vector2(270, 173)
+script = ExtResource("1_3mhcr")
+patrolNodeParent = NodePath("../PatrolNodes")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ThisGuy" unique_id=1375007379]
+texture = ExtResource("2_1hv8r")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="ThisGuy" unique_id=650414960]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ThisGuy" unique_id=1611435873]
+shape = SubResource("CircleShape2D_3mhcr")
+
+[node name="WaitTimer" type="Timer" parent="ThisGuy" unique_id=830999515]
+one_shot = true
+
+[node name="PatrolNodes" type="Node2D" parent="." unique_id=194182922]
+
+[node name="LocationA" type="Node2D" parent="PatrolNodes" unique_id=408354554]
+position = Vector2(147, 435)
+
+[node name="LocationA2" type="Node2D" parent="PatrolNodes" unique_id=1520528924]
+position = Vector2(562, 195)
+
+[node name="LocationA3" type="Node2D" parent="PatrolNodes" unique_id=141218565]
+position = Vector2(862, 375)
+
+[connection signal="navigation_finished" from="ThisGuy/NavigationAgent2D" to="ThisGuy" method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="timeout" from="ThisGuy/WaitTimer" to="ThisGuy" method="_on_wait_timer_timeout"]

@@ -14,9 +14,23 @@ config/name="Lifesteal"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[input]
+
+MoveLeft={
+"deadzone": 0.2,
+"events": []
+}
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Interactable"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
+2d/default_gravity=0.0
 
 [rendering]
 

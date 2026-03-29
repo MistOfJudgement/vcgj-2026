@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://wq0hmne6k6v5"]
+
+[ext_resource type="Texture2D" uid="uid://duxm54mgdtki1" path="res://icon.svg" id="1_lnp5s"]
+[ext_resource type="PackedScene" uid="uid://c3x6smsyb2ydn" path="res://Player.tscn" id="2_dnft3"]
+[ext_resource type="PackedScene" uid="uid://dou6c1gp41kwk" path="res://NotPlayer.tscn" id="3_7mki8"]
+[ext_resource type="PackedScene" uid="uid://cqrdlb1t68g4o" path="res://ClueInteractable.tscn" id="4_3wrrq"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dnft3"]
+vertices = PackedVector2Array(1104.8672, 601.96094, 35.0625, 598.03125, 38.929688, 32.96875, 1098.1094, 30.023438)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(29, 23, 1108, 20, 1115, 612, 25, 608)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mki8"]
+size = Vector2(124, 126)
+
+[node name="LineOfSightTest" type="Node2D" unique_id=2146635576]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1786662485]
+navigation_polygon = SubResource("NavigationPolygon_dnft3")
+
+[node name="Furniture" type="StaticBody2D" parent="." unique_id=262451263]
+position = Vector2(553, 112)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture" unique_id=1209967501]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_7mki8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture" unique_id=936029212]
+self_modulate = Color(0.9917341, 0, 0.24252167, 1)
+texture = ExtResource("1_lnp5s")
+
+[node name="Furniture2" type="StaticBody2D" parent="." unique_id=1453667584]
+position = Vector2(779, 290)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture2" unique_id=394691205]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_7mki8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture2" unique_id=396976852]
+self_modulate = Color(0.9917341, 0, 0.24252167, 1)
+texture = ExtResource("1_lnp5s")
+
+[node name="Furniture3" type="StaticBody2D" parent="." unique_id=395944644]
+position = Vector2(446, 464)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture3" unique_id=1699734524]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_7mki8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture3" unique_id=1371267637]
+self_modulate = Color(0.9917341, 0, 0.24252167, 1)
+texture = ExtResource("1_lnp5s")
+
+[node name="CharacterBody2D" parent="." unique_id=715133903 instance=ExtResource("2_dnft3")]
+position = Vector2(186, 318)
+motion_mode = 1
+
+[node name="ThisGuy" parent="." unique_id=1723388702 node_paths=PackedStringArray("patrolNodeParent") instance=ExtResource("3_7mki8")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(975, 160)
+patrolNodeParent = NodePath("../Node")
+
+[node name="Node" type="Node2D" parent="." unique_id=1685714781]
+
+[node name="Node2D" type="Node2D" parent="Node" unique_id=652174195]
+position = Vector2(925, 117)
+
+[node name="Node2D2" type="Node2D" parent="Node" unique_id=1448745707]
+position = Vector2(967, 494)
+
+[node name="ClueInteractable" parent="." unique_id=1230103675 instance=ExtResource("4_3wrrq")]
+position = Vector2(74, 49)
