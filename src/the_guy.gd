@@ -37,8 +37,8 @@ func start_patrol() -> void:
 		NavAgent.target_position = (patrolNodeParent.get_child(patrolIndex) as Node2D).global_position
 		print("going to ", NavAgent.target_position)
 	
-func _draw() -> void:
-	draw_line(Vector2.ZERO, get_angle() * Vector2.UP * 250, Color.ALICE_BLUE)
+#func _draw() -> void:
+	#draw_line(Vector2.ZERO, get_angle() * Vector2.UP * 250, Color.ALICE_BLUE)
 func _process(_delta: float) -> void:
 	if InventoryManager.instance.paused: return
 	match currentState:
@@ -54,7 +54,7 @@ func _process(_delta: float) -> void:
 			NavAgent.target_position = lastSeen
 			waitTimer.stop()
 			if is_moving():
-				navMove(0.1)
+				navMove(0.25)
 			var scanResult = scan_for_player()
 			if not scanResult:
 				if NavAgent.is_navigation_finished():
