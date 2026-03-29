@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dou6c1gp41kwk"]
+
+[ext_resource type="Script" uid="uid://cc45j7js5o58g" path="res://the_guy.gd" id="1_5hk7s"]
+[ext_resource type="Texture2D" uid="uid://duxm54mgdtki1" path="res://icon.svg" id="2_7jqte"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mhcr"]
+radius = 62.008064
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_vjgdi"]
+points = PackedVector2Array(-217.00002, 697, 300, 701, 0, 0)
+
+[node name="ThisGuy" type="CharacterBody2D" unique_id=1723388702]
+rotation = -1.5707964
+script = ExtResource("1_5hk7s")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=123063812]
+texture = ExtResource("2_7jqte")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1442553564]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=952422368]
+shape = SubResource("CircleShape2D_3mhcr")
+
+[node name="WaitTimer" type="Timer" parent="." unique_id=664913914]
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1284044012]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=733849923]
+shape = SubResource("ConvexPolygonShape2D_vjgdi")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1541668101]
+target_position = Vector2(-172.00002, 680)
+collision_mask = 2
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1486828949]
+target_position = Vector2(-4.000008, 687)
+collision_mask = 2
+
+[node name="RayCast2D3" type="RayCast2D" parent="." unique_id=2040139745]
+rotation = 0.103849456
+target_position = Vector2(217.27875, 657.0159)
+collision_mask = 2
+
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
