@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ydae3as8imiv"]
+
+[ext_resource type="Theme" uid="uid://dmhmeu371deqa" path="res://TheTheme.tres" id="1_s3lyf"]
+
+[node name="Panel" type="Panel" unique_id=958718858]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="." unique_id=184509172]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_s3lyf")

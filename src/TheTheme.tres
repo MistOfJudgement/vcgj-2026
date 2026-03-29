@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://dmhmeu371deqa"]
+
+[resource]
+default_font_size = 36
+Button/font_sizes/font_size = 36
+Label/font_sizes/font_size = 36

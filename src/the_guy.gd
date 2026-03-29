@@ -66,7 +66,7 @@ func scan_for_player() -> CollisionObject2D:
 	for ray in raychecks:
 		ray.force_raycast_update()
 		if ray.is_colliding():
-			print("ray hit something")
+			#print("ray hit something")
 			var collider = ray.get_collider()
 			if collider.is_in_group("Player"):
 				return collider
