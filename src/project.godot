@@ -14,6 +14,10 @@ config/name="Lifesteal"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[gui]
+
+theme/custom="uid://dmhmeu371deqa"
+
 [input]
 
 MoveLeft={
