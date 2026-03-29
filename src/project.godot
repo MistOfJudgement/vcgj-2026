@@ -20,6 +20,26 @@ MoveLeft={
 "deadzone": 0.2,
 "events": []
 }
+move_left={
+"deadzone": 0.2,
+"events": []
+}
+move_right={
+"deadzone": 0.2,
+"events": []
+}
+move_up={
+"deadzone": 0.2,
+"events": []
+}
+move_down={
+"deadzone": 0.2,
+"events": []
+}
+confirm={
+"deadzone": 0.2,
+"events": []
+}
 
 [layer_names]
 
