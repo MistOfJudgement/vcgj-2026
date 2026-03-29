@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://bsaypymkbk6yq"]
 
+[ext_resource type="Script" uid="uid://cij5o10ieh0jk" path="res://pause_screen.gd" id="1_sf4dv"]
+
+[sub_resource type="Theme" id="Theme_sf4dv"]
+
 [node name="PauseScreen" type="Control" unique_id=1622059927]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +11,74 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_sf4dv")
+
+[node name="Panel" type="Panel" parent="." unique_id=556532387]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=69429910]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer" unique_id=1984709248]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ClueHolder" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer" unique_id=1253619560]
+clip_contents = true
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TemplatePanel" type="Panel" parent="Panel/VBoxContainer/ScrollContainer/ClueHolder" unique_id=895736430]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Template" type="RichTextLabel" parent="Panel/VBoxContainer/ScrollContainer/ClueHolder/TemplatePanel" unique_id=364349515]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -250.0
+offset_right = 150.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "This is where clues you've picked up will appear"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=2123114821]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="Title" type="Button" parent="Panel/VBoxContainer/HBoxContainer2" unique_id=1143672986]
+layout_mode = 2
+theme = SubResource("Theme_sf4dv")
+text = "Title sceen"
+
+[node name="Resume" type="Button" parent="Panel/VBoxContainer/HBoxContainer2" unique_id=1761663890]
+layout_mode = 2
+theme = SubResource("Theme_sf4dv")
+text = "Resume"
+
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer2/Title" to="." method="_on_title_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer2/Resume" to="." method="_on_resume_pressed"]

@@ -1,5 +1,6 @@
 extends Node2D
-
+signal clicked
+@export_multiline() var text: String
 @onready var sprite := $Sprite2D
 var in_range: bool = false
 
@@ -27,4 +28,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed and in_range:
-			print("clicked")
+			if text != "": # random hardcode for safe stuff
+				InventoryManager.instance.collect_clue(self.name, text)
+				#queue_free()
+			else:
+				clicked.emit()
