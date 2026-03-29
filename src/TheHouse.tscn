@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c3x6smsyb2ydn" path="res://Player.tscn" id="2_yq4or"]
 [ext_resource type="Texture2D" uid="uid://duxm54mgdtki1" path="res://icon.svg" id="3_cjob1"]
 [ext_resource type="PackedScene" uid="uid://dou6c1gp41kwk" path="res://NotPlayer.tscn" id="3_swvm1"]
+[ext_resource type="PackedScene" uid="uid://dxskje5sj72qx" path="res://GameOver.tscn" id="4_d2m2k"]
 [ext_resource type="PackedScene" uid="uid://cqrdlb1t68g4o" path="res://ClueInteractable.tscn" id="4_yq4or"]
 [ext_resource type="Texture2D" uid="uid://gvq4hesjcde2" path="res://OverworldTileset64.png" id="5_swvm1"]
 [ext_resource type="PackedScene" uid="uid://b1dayuiwia8yi" path="res://SafeLock.tscn" id="6_mjmsh"]
@@ -129,6 +130,9 @@ sources/0 = SubResource("TileSetAtlasSource_cjob1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=749260547]
 
+[node name="Panel2" parent="CanvasLayer" unique_id=95050873 instance=ExtResource("4_d2m2k")]
+visible = false
+
 [node name="PauseScreen" parent="CanvasLayer" unique_id=1622059927 instance=ExtResource("1_6byqa")]
 visible = false
 
@@ -168,11 +172,13 @@ position = Vector2(-3, 7)
 [node name="ThisGuy" parent="NavigationRegion2D" unique_id=1723388702 instance=ExtResource("3_swvm1")]
 position = Vector2(252, 1817)
 scale = Vector2(0.9, 0.9)
+walkSpeed = 610
 
 [node name="Belle" parent="NavigationRegion2D" unique_id=1404234148 node_paths=PackedStringArray("patrolNodeParent") instance=ExtResource("3_swvm1")]
 position = Vector2(1492.0001, 1686)
 scale = Vector2(0.9, 0.9)
 patrolNodeParent = NodePath("../PatrolBelle")
+walkSpeed = 610
 
 [node name="PatrolBelle" type="Node2D" parent="NavigationRegion2D" unique_id=426731831]
 
@@ -188,6 +194,7 @@ position = Vector2(1592, 1696)
 [node name="ThisGuy3" parent="NavigationRegion2D" unique_id=1701589375 instance=ExtResource("3_swvm1")]
 position = Vector2(-650, -127)
 scale = Vector2(0.9, 0.9)
+walkSpeed = 610
 
 [node name="Clue1" parent="NavigationRegion2D" unique_id=407064830 node_paths=PackedStringArray("destinationArea") instance=ExtResource("4_yq4or")]
 position = Vector2(2093, 1820)
@@ -300,3 +307,4 @@ position = Vector2(1929, 778)
 [connection signal="pressed" from="CanvasLayer/PauseButton" to="CanvasLayer/PauseScreen" method="_on_pause_button_pressed"]
 [connection signal="clicked" from="NavigationRegion2D/Safe" to="CanvasLayer/SafeLock" method="_on_safe_clicked"]
 [connection signal="clue_collected" from="NavigationRegion2D/InventoryManager" to="CanvasLayer/PauseScreen" method="_on_inventory_manager_clue_collected"]
+[connection signal="game_over" from="NavigationRegion2D/InventoryManager" to="CanvasLayer/Panel2" method="_on_inventory_manager_game_over"]

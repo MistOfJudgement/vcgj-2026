@@ -6,8 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_tc86h"]
 radius = 200.35968
 
-[node name="ClueInteractable" type="Node2D" unique_id=1230103675]
+[node name="ClueInteractable" type="Node2D" unique_id=1230103675 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_40dd0")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1283541056]
 texture = ExtResource("2_40dd0")

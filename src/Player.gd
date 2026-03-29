@@ -8,6 +8,8 @@ class_name Player
 
 
 func _process(delta: float) -> void:
+	if InventoryManager.instance.is_game_over() or InventoryManager.instance.paused:
+		return
 	var vel: Vector2 = Vector2.ZERO
 	if Input.is_key_pressed(KEY_A):
 		vel += Vector2.LEFT

@@ -1,9 +1,9 @@
 extends Node2D
 signal clicked
 @export_multiline() var text: String
-@onready var sprite := $Sprite2D
+@export var sprite: Sprite2D
 @export var destinationArea: Control
-
+@export_color_no_alpha var flashColor: Color = Color.BLUE
 var in_range: bool = false
 var tween: Tween
 func _process(_delta: float) -> void:
@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 		global_position = global_position.lerp(world_pos_center(destinationArea), 0.1)
 
 func flash():
-	sprite.modulate = Color.BLUE
+	sprite.modulate = flashColor
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

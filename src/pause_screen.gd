@@ -2,6 +2,7 @@ extends Control
 
 @onready var clue_holder = $Panel/VBoxContainer/ScrollContainer/ClueHolder
 @onready var template = $Panel/VBoxContainer/ScrollContainer/ClueHolder/TemplatePanel
+
 func _ready() -> void:
 	visibility_changed.connect(on_visible_changed)
 func _input(event: InputEvent) -> void:
@@ -10,7 +11,8 @@ func _input(event: InputEvent) -> void:
 			visible = !visible
 
 func on_visible_changed():
-	pass
+	InventoryManager.instance.paused = visible
+
 
 func build_clue(str: String):
 	template.visible = false
@@ -36,3 +38,7 @@ func _on_resume_pressed() -> void:
 
 func _on_pause_button_pressed() -> void:
 	visible = !visible
+
+
+func _on_inventory_manager_game_over() -> void:
+	pass # Replace with function body.
