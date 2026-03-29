@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cqrdlb1t68g4o"]
+[gd_scene format=3 uid="uid://delmovy5big2s"]
 
 [ext_resource type="Script" uid="uid://tmy0opas5kd1" path="res://clue_interactable.gd" id="1_40dd0"]
-[ext_resource type="Texture2D" uid="uid://duxm54mgdtki1" path="res://icon.svg" id="1_fglau"]
+[ext_resource type="Texture2D" uid="uid://vf6svet7fcps" path="res://note.png" id="2_40dd0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tc86h"]
 radius = 200.35968
@@ -11,7 +11,7 @@ script = ExtResource("1_40dd0")
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1283541056]
-texture = ExtResource("1_fglau")
+texture = ExtResource("2_40dd0")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=508446407]
 collision_layer = 4

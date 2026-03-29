@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://dpabmp2jds0r5"]
+[gd_scene format=4 uid="uid://qrgy76h00l6x"]
 
 [ext_resource type="Texture2D" uid="uid://cjoux3pdnqwhm" path="res://map_design.png" id="1_3yu1u"]
 [ext_resource type="PackedScene" uid="uid://bsaypymkbk6yq" path="res://PauseScreen.tscn" id="1_6byqa"]
@@ -165,12 +165,9 @@ texture = ExtResource("1_3yu1u")
 
 [node name="Player" parent="NavigationRegion2D" unique_id=715133903 instance=ExtResource("2_yq4or")]
 position = Vector2(284, -156)
-scale = Vector2(0.9, 0.9)
-speed = 600.0
 
 [node name="Camera2D" type="Camera2D" parent="NavigationRegion2D/Player" unique_id=102323751]
 position = Vector2(-3, 7)
-zoom = Vector2(0.675, 0.675)
 
 [node name="ThisGuy" parent="NavigationRegion2D" unique_id=1723388702 instance=ExtResource("3_swvm1")]
 position = Vector2(252, 1817)
@@ -282,6 +279,31 @@ position = Vector2(1622, 1249)
 [node name="InventoryManager" type="Node2D" parent="NavigationRegion2D" unique_id=1979203131]
 script = ExtResource("6_r0heo")
 
+[node name="Clue8" parent="." unique_id=1038475898 instance=ExtResource("4_yq4or")]
+position = Vector2(579, -836)
+
+[node name="Clue4" parent="." unique_id=857561954 instance=ExtResource("4_yq4or")]
+position = Vector2(1676, -1292)
+
+[node name="Clue10" parent="." unique_id=791022163 instance=ExtResource("4_yq4or")]
+position = Vector2(-710, 585)
+
+[node name="Clue5" parent="." unique_id=500844468 instance=ExtResource("4_yq4or")]
+position = Vector2(-402, 1123)
+
+[node name="Markers" type="Node2D" parent="." unique_id=1497364231]
+
+[node name="ReginaldRoom" type="Marker2D" parent="Markers" unique_id=1192611559]
+position = Vector2(-840, 1081)
+
+[node name="ChazRoom" type="Marker2D" parent="Markers" unique_id=133074728]
+position = Vector2(1232, -1287)
+
+[node name="BellaRoom" type="Marker2D" parent="Markers" unique_id=2105885673]
+position = Vector2(1750, 2198)
+
+[node name="MacintoshRoom" type="Marker2D" parent="Markers" unique_id=1819196888]
+position = Vector2(1929, 778)
 [connection signal="pressed" from="CanvasLayer/PauseButton" to="CanvasLayer/PauseScreen" method="_on_pause_button_pressed"]
 [connection signal="clicked" from="NavigationRegion2D/Safe" to="CanvasLayer/SafeLock" method="_on_safe_clicked"]
 [connection signal="clue_collected" from="NavigationRegion2D/InventoryManager" to="CanvasLayer/PauseScreen" method="_on_inventory_manager_clue_collected"]
