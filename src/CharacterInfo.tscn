@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://7kso5gghhvf7"]
+
+[ext_resource type="Texture2D" uid="uid://duxm54mgdtki1" path="res://icon.svg" id="1_ssa1u"]
+
+[node name="CharacterInfo" type="Panel" unique_id=1230768341]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=630240308]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1577566800]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=736903148]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=20618353]
+layout_mode = 2
+text = "this someone idk"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1504506622]
+layout_mode = 2
+texture = ExtResource("1_ssa1u")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1690061094]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=2102398634]
+layout_mode = 2
+texture = ExtResource("1_ssa1u")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=990810812]
+layout_mode = 2
+text = "this someone idk"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1050208547]
+layout_mode = 2
+text = "Start Game"

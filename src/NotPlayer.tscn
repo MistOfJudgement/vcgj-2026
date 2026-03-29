@@ -13,6 +13,7 @@ radius = 121.71
 rotation = -1.5707964
 collision_layer = 0
 script = ExtResource("1_5hk7s")
+walkSpeed = 610
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=123063812]
@@ -34,7 +35,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_vjgdi")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1541668101]
-target_position = Vector2(-172.00002, 680)
+target_position = Vector2(-371.00003, 576)
 collision_mask = 3
 
 [node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1486828949]
@@ -43,8 +44,14 @@ collision_mask = 3
 
 [node name="RayCast2D3" type="RayCast2D" parent="." unique_id=2040139745]
 rotation = 0.103849456
-target_position = Vector2(217.27875, 657.0159)
+target_position = Vector2(365.59656, 575.20013)
 collision_mask = 3
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1463226602]
+position = Vector2(1.2531891, 2.3327827)
+scale = Vector2(0.99180925, 0.88891506)
+color = Color(1, 1, 0, 0.2509804)
+polygon = PackedVector2Array(-6.000001, 21, 325.41217, 726.3542, -387.42657, 708.35474)
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
