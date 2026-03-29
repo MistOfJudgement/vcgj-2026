@@ -3,14 +3,15 @@ extends CharacterBody2D
 @export var patrolNodeParent: Node2D
 @export var waitTime := 3
 @export var walkSpeed = 250
-
+@export var tex: Texture
 @onready var NavAgent = $NavigationAgent2D
 @onready var waitTimer = $WaitTimer
 @onready var raychecks: Array[RayCast2D] = [
-	$RayCast2D, $RayCast2D2, $RayCast2D3
+$Node2D/RayCast2D, $Node2D/RayCast2D2, $Node2D/RayCast2D3
 ]
 
 @onready var sprite = $Sprite2D
+@onready var facingRoot = $Node2D
 enum NpcState {
 	Patrol,
 	Chase,
@@ -26,7 +27,9 @@ var lastSeen: Vector2
 
 func _ready() -> void:
 	waitTimer.start(waitTime)
-	initRotation = rotation
+	initRotation = facingRoot.rotation
+	if tex:
+		sprite.texture = tex
 func start_patrol() -> void:
 	if not patrolNodeParent: return
 	patrolIndex += 1
@@ -41,6 +44,7 @@ func start_patrol() -> void:
 	#draw_line(Vector2.ZERO, get_angle() * Vector2.UP * 250, Color.ALICE_BLUE)
 func _process(_delta: float) -> void:
 	if InventoryManager.instance.paused: return
+	sprite.flip_h =  get_dir().x < 0
 	match currentState:
 		NpcState.Patrol:
 			#print("patrolling")
@@ -95,20 +99,23 @@ func _on_wait_timer_timeout() -> void:
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
 	print("nav finished")
+	turn(facingRoot.rotation_degrees, 1)
 	waitTimer.start(waitTime)
 
 var tween: Tween
-func navMove(turnSpeed = 0.3):
+func navMove(turnSpeed: float = 0.3):
 	velocity = get_dir() * walkSpeed
 	move_and_slide()
+	turn(get_angle(), turnSpeed)
+	
+func turn(angle: float, turnSpeed: float = 0.3):
 	if tween and tween.is_running():
 		tween.kill()
 		tween = null
 	
 	tween = create_tween()
-	tween.tween_property(self, "rotation", lerp_angle(rotation, get_angle(), 1), turnSpeed)
+	tween.tween_property(facingRoot, "rotation", lerp_angle(facingRoot.rotation, angle, 1), turnSpeed)
 	
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	InventoryManager.instance.set_game_over("caught by a guy")
 

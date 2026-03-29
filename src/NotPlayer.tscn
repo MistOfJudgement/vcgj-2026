@@ -9,10 +9,10 @@ radius = 54.00926
 [sub_resource type="CircleShape2D" id="CircleShape2D_vjgdi"]
 radius = 121.71
 
-[node name="ThisGuy" type="CharacterBody2D" unique_id=1723388702]
-rotation = -1.5707964
+[node name="ThisGuy" type="CharacterBody2D" unique_id=1723388702 node_paths=PackedStringArray("patrolNodeParent")]
 collision_layer = 0
 script = ExtResource("1_5hk7s")
+patrolNodeParent = NodePath("Node2D")
 walkSpeed = 610
 metadata/_edit_group_ = true
 
@@ -34,20 +34,23 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=733849923]
 shape = SubResource("CircleShape2D_vjgdi")
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1541668101]
+[node name="Node2D" type="Node2D" parent="." unique_id=1132090322]
+rotation = -1.5707964
+
+[node name="RayCast2D" type="RayCast2D" parent="Node2D" unique_id=1541668101]
 target_position = Vector2(-371.00003, 576)
 collision_mask = 3
 
-[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1486828949]
+[node name="RayCast2D2" type="RayCast2D" parent="Node2D" unique_id=1486828949]
 target_position = Vector2(-4.000008, 687)
 collision_mask = 3
 
-[node name="RayCast2D3" type="RayCast2D" parent="." unique_id=2040139745]
+[node name="RayCast2D3" type="RayCast2D" parent="Node2D" unique_id=2040139745]
 rotation = 0.103849456
 target_position = Vector2(365.59656, 575.20013)
 collision_mask = 3
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1463226602]
+[node name="Polygon2D" type="Polygon2D" parent="Node2D" unique_id=1463226602]
 position = Vector2(1.2531891, 2.3327827)
 scale = Vector2(0.99180925, 0.88891506)
 color = Color(1, 1, 0, 0.2509804)

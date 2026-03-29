@@ -23,4 +23,7 @@ func _process(delta: float) -> void:
 		vel += Vector2.DOWN
 
 	velocity = vel.normalized() * speed
+	if (sprite.flip_h and velocity.x > 0) or (not sprite.flip_h and velocity.x < 0):
+		sprite.flip_h = not sprite.flip_h
+
 	move_and_slide()

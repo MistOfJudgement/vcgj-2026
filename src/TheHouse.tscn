@@ -10,6 +10,7 @@
 [ext_resource type="TileSet" uid="uid://deur7dnn7no6" path="res://mansion_tiles.tres" id="5_d2m2k"]
 [ext_resource type="PackedScene" uid="uid://b1dayuiwia8yi" path="res://SafeLock.tscn" id="6_mjmsh"]
 [ext_resource type="Script" uid="uid://dwhyrhwjbu8ew" path="res://clue_manager.gd" id="6_r0heo"]
+[ext_resource type="Texture2D" uid="uid://c4viojqk4wk7y" path="res://suspect/bella.png" id="9_pxhri"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_r0heo"]
 vertices = PackedVector2Array(-509.53125, 770.46875, -509.53125, 1218.4688, -514.46875, 1021.53125, -514.46875, 770.46875, -194.46875, -194.46875, 450.46875, -258.46875, 1346.4688, -258.46875, 1149.5313, -125.53125, -834.46875, -125.53125, 1149.5313, 1597.5313, 1213.5313, 1602.4688, 1026.4688, 1602.4688, 1021.53125, 1597.5313, 765.53125, -514.46875, 1346.4688, -445.53125, 450.46875, -445.53125, 450.46875, -514.46875, 1213.5313, -1218.4688, 1538.4688, -1282.4688, 1666.4688, -1282.4688, 1666.4688, -1149.5313, 1218.4688, -1149.5313, 1469.5313, -1282.4688, 1218.4688, -1282.4688, 1213.5313, -1469.5313, 1218.4688, -1533.5313, 317.53125, -322.46875, -61.53125, -322.46875, 1021.53125, 2237.5313, 1026.4688, 2306.4688, -194.46875, -701.53125, -61.53125, -893.53125, 834.46875, 1661.5313, 834.46875, 2237.5313, 573.53125, 2109.5313, 573.53125, 1794.4688, 381.53125, 1661.5313, 381.53125, 1789.5313, -317.53125, 1794.4688, -125.53125, 1789.5313, 317.53125, -893.53125, 450.46875, -957.53125, 1218.4688, -962.46875, 1346.4688, -962.46875, 765.53125, -957.53125, -642.46875, 2306.4688, -317.53125, 2109.5313, -642.46875, 1666.4688, -706.46875, 1218.4688, -706.46875, 1154.4688, -829.53125, 1021.53125, -834.46875, 1154.4688, -834.46875, 770.46875, -829.53125, 770.46875, 1538.4688, -1602.4688, 1469.5313, -1533.5313, 1315.4609, -1602.4688, 957.53125, -1596.2031, 2114.4688, 509.53125, 2114.4688, 1026.4688, 1794.4688, 1026.4688, 1533.5313, 578.46875, 1794.4688, 1218.4688, 1533.5313, 1218.4688, 1346.4688, 509.53125, 1346.4688, 578.46875, 1533.5313, 2301.5313, 1533.5313, 2173.5313, 1789.5313, 2173.5313, 2114.4688, 2306.4688, 1789.5313, 1922.4688, 1533.5313, 1922.4688, 1533.5313, 1597.5313, 1986.4688, 1597.5313, 1986.4688, 1917.5313, 2114.4688, 1917.5313, -578.46875, 701.53125, -578.46875, 573.53125, -381.53125, 573.53125, -381.53125, 770.46875, -1021.53125, 701.53125, -1021.53125, 770.46875, -125.53125, 1661.5313, 962.46875, -1469.5313, 957.53125, -1213.5313, 962.46875, -1218.4688, 1149.5313, -1213.5313, 1149.5313, -1026.4688, -1154.4688, -1026.4688, -834.46875, 1661.5313, -829.53125, 1666.4688, -834.46875, 2237.5313, -829.53125, 2306.4688, -1154.4688, 2306.4688, -1021.53125, 2237.5313, -1021.53125, -957.53125, 1213.5313, 2306.4688, 1346.4688, 2301.5313, -509.53125, -194.46875, -834.46875, -770.46875, -509.53125, -701.53125, -194.46875, -770.46875, -194.46875, -957.53125)
@@ -73,17 +74,24 @@ scale = Vector2(0.9, 0.9)
 position = Vector2(1492.0001, 1686)
 scale = Vector2(0.9, 0.9)
 patrolNodeParent = NodePath("../PatrolBelle")
+tex = ExtResource("9_pxhri")
 
 [node name="PatrolBelle" type="Node2D" parent="NavigationRegion2D" unique_id=426731831]
 
-[node name="Node2D" type="Node2D" parent="NavigationRegion2D/PatrolBelle" unique_id=457598659]
-position = Vector2(1989, 1690)
+[node name="Marker2D" type="Marker2D" parent="NavigationRegion2D/PatrolBelle" unique_id=234067799]
+position = Vector2(1540, 1689)
 
-[node name="Node2D2" type="Node2D" parent="NavigationRegion2D/PatrolBelle" unique_id=2117193028]
-position = Vector2(1564, 1694)
+[node name="Marker2D2" type="Marker2D" parent="NavigationRegion2D/PatrolBelle" unique_id=1797854547]
+position = Vector2(1986, 1720)
 
-[node name="Node2D3" type="Node2D" parent="NavigationRegion2D/PatrolBelle" unique_id=2024256340]
-position = Vector2(1592, 1696)
+[node name="Marker2D3" type="Marker2D" parent="NavigationRegion2D/PatrolBelle" unique_id=752470994]
+position = Vector2(1540, 1689)
+
+[node name="Marker2D4" type="Marker2D" parent="NavigationRegion2D/PatrolBelle" unique_id=959682201]
+position = Vector2(1986, 1720)
+
+[node name="Marker2D5" type="Marker2D" parent="NavigationRegion2D/PatrolBelle" unique_id=1011223478]
+position = Vector2(-492, 2229)
 
 [node name="ThisGuy3" parent="NavigationRegion2D" unique_id=1701589375 instance=ExtResource("3_swvm1")]
 position = Vector2(-650, -127)
