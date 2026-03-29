@@ -27,7 +27,7 @@ func _on_inventory_manager_clue_collected(str: String) -> void:
 
 
 func _on_title_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Title.tscn")
 
 
 func _on_resume_pressed() -> void:
