@@ -27,7 +27,7 @@ shape = SubResource("CircleShape2D_3mhcr")
 one_shot = true
 
 [node name="KillZone" type="Area2D" parent="." unique_id=1284044012]
-collision_layer = 0
+collision_layer = 128
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=733849923]
@@ -49,3 +49,6 @@ collision_mask = 3
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
 [connection signal="body_entered" from="KillZone" to="." method="_on_area_2d_body_entered"]
+[connection signal="input_event" from="KillZone" to="." method="_on_kill_zone_input_event"]
+[connection signal="mouse_entered" from="KillZone" to="." method="_on_kill_zone_mouse_entered"]
+[connection signal="mouse_exited" from="KillZone" to="." method="_on_kill_zone_mouse_exited"]

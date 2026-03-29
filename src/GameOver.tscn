@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dxskje5sj72qx"]
+
+[ext_resource type="Script" uid="uid://d1l2cohj1iscy" path="res://title_button.gd" id="1_40baj"]
+[ext_resource type="Script" uid="uid://ckou5yk825ipt" path="res://game_over.gd" id="1_a1htc"]
+
+[node name="Panel" type="Panel" unique_id=95050873 node_paths=PackedStringArray("rich_text_label")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+script = ExtResource("1_a1htc")
+rich_text_label = NodePath("GameOver/RichTextLabel")
+
+[node name="GameOver" type="VBoxContainer" parent="." unique_id=1681713622]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GameOver" unique_id=1943624358]
+layout_mode = 2
+size_flags_vertical = 3
+text = "You couldn't escape! RIP."
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Button" type="Button" parent="GameOver" unique_id=1164178985]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Return to Title"
+script = ExtResource("1_40baj")

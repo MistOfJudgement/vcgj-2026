@@ -9,6 +9,8 @@ extends CharacterBody2D
 @onready var raychecks: Array[RayCast2D] = [
 	$RayCast2D, $RayCast2D2, $RayCast2D3
 ]
+
+@onready var sprite = $Sprite2D
 enum NpcState {
 	Patrol,
 	Chase,
@@ -38,6 +40,7 @@ func start_patrol() -> void:
 func _draw() -> void:
 	draw_line(Vector2.ZERO, get_angle() * Vector2.UP * 250, Color.ALICE_BLUE)
 func _process(_delta: float) -> void:
+	if InventoryManager.instance.paused: return
 	match currentState:
 		NpcState.Patrol:
 			#print("patrolling")
@@ -107,9 +110,30 @@ func navMove(turnSpeed = 0.3):
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass
-	#this is the kill zeon
+	InventoryManager.instance.set_game_over("caught by a guy")
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	objectsInScanRegion.remove_at(objectsInScanRegion.find(body))
+
+
+func _on_kill_zone_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed and InventoryManager.instance and InventoryManager.instance.collected_gun:
+			var player = get_tree().get_first_node_in_group("Player") as Node2D
+			var space_state = get_world_2d().direct_space_state
+			var query = PhysicsRayQueryParameters2D.create(player.global_position, global_position)
+			query.collision_mask = 1 << 0 # only collide with the default layer
+			# if no obstacles in the way, win
+			if not space_state.intersect_ray(query):
+				InventoryManager.instance.set_game_over("win")
+			
+
+
+func _on_kill_zone_mouse_entered() -> void:
+	if InventoryManager.instance and InventoryManager.instance.collected_gun:
+		sprite.modulate = Color.RED
+
+
+func _on_kill_zone_mouse_exited() -> void:
+	sprite.modulate = Color.WHITE
