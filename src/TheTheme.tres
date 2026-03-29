@@ -1,6 +1,9 @@
 [gd_resource type="Theme" format=3 uid="uid://dmhmeu371deqa"]
 
+[ext_resource type="FontFile" uid="uid://dvwbogps0rcpg" path="res://BadComic-Regular.ttf" id="1_o76d3"]
+
 [resource]
-default_font_size = 36
+default_font = ExtResource("1_o76d3")
+default_font_size = 18
 Button/font_sizes/font_size = 36
 Label/font_sizes/font_size = 36

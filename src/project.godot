@@ -13,7 +13,11 @@ config_version=5
 config/name="Lifesteal"
 run/main_scene="uid://cep3m5pufu0th"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://dv5bfn2akjs70"
+
+[gui]
+
+theme/custom="uid://dmhmeu371deqa"
 
 [input]
 
