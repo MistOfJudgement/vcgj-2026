@@ -9,6 +9,7 @@ height = 120.0
 
 [node name="Player" type="CharacterBody2D" unique_id=715133903 groups=["Player"]]
 collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_d08hv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=717261311 groups=["Player"]]
