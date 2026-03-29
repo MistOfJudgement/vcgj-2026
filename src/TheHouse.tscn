@@ -10,6 +10,7 @@
 [ext_resource type="TileSet" uid="uid://deur7dnn7no6" path="res://mansion_tiles.tres" id="5_d2m2k"]
 [ext_resource type="PackedScene" uid="uid://b1dayuiwia8yi" path="res://SafeLock.tscn" id="6_mjmsh"]
 [ext_resource type="Script" uid="uid://dwhyrhwjbu8ew" path="res://clue_manager.gd" id="6_r0heo"]
+[ext_resource type="Texture2D" uid="uid://ciyripl2auo13" path="res://suspect/chaz.png" id="9_1nbfr"]
 [ext_resource type="Texture2D" uid="uid://c4viojqk4wk7y" path="res://suspect/bella.png" id="9_pxhri"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_r0heo"]
@@ -66,15 +67,70 @@ speed = 600.0
 position = Vector2(-3, 7)
 zoom = Vector2(0.755, 0.755)
 
-[node name="ThisGuy" parent="NavigationRegion2D" unique_id=1723388702 instance=ExtResource("3_swvm1")]
+[node name="Chaz" parent="NavigationRegion2D" unique_id=1723388702 node_paths=PackedStringArray("patrolNodeParent") instance=ExtResource("3_swvm1")]
 position = Vector2(252, 1817)
 scale = Vector2(0.9, 0.9)
+patrolNodeParent = NodePath("../PatrolChaz")
+tex = ExtResource("9_1nbfr")
 
 [node name="Belle" parent="NavigationRegion2D" unique_id=1404234148 node_paths=PackedStringArray("patrolNodeParent") instance=ExtResource("3_swvm1")]
 position = Vector2(1492.0001, 1686)
 scale = Vector2(0.9, 0.9)
 patrolNodeParent = NodePath("../PatrolBelle")
 tex = ExtResource("9_pxhri")
+
+[node name="PatrolChaz" type="Node2D" parent="NavigationRegion2D" unique_id=2027374457]
+
+[node name="Marker2D" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=184781224]
+position = Vector2(321, 1811)
+
+[node name="Marker2D2" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=1334838307]
+position = Vector2(308, 2213)
+
+[node name="Marker2D3" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=1598982890]
+position = Vector2(-182, 1790)
+
+[node name="Marker2D17" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=1612603114]
+position = Vector2(452, 1779)
+
+[node name="Marker2D4" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=775331822]
+position = Vector2(1092, -203)
+
+[node name="Marker2D5" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=1492939053]
+position = Vector2(-674, -293)
+
+[node name="Marker2D6" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=1475887598]
+position = Vector2(1333, -1224)
+
+[node name="Marker2D7" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=1761592043]
+position = Vector2(1324, -1222)
+
+[node name="Marker2D8" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=2126254245]
+position = Vector2(1409, -1567)
+
+[node name="Marker2D9" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=987327096]
+position = Vector2(1324, -1222)
+
+[node name="Marker2D10" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=1611173329]
+position = Vector2(1409, -1567)
+
+[node name="Marker2D11" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=1789165473]
+position = Vector2(1324, -1222)
+
+[node name="Marker2D12" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=1115764523]
+position = Vector2(1409, -1567)
+
+[node name="Marker2D13" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=622915562]
+position = Vector2(1324, -1222)
+
+[node name="Marker2D14" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=1885368544]
+position = Vector2(1409, -1567)
+
+[node name="Marker2D15" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=2002510666]
+position = Vector2(-1052, -921)
+
+[node name="Marker2D16" type="Marker2D" parent="NavigationRegion2D/PatrolChaz" unique_id=1785342124]
+position = Vector2(-1095, 2253)
 
 [node name="PatrolBelle" type="Node2D" parent="NavigationRegion2D" unique_id=426731831]
 
@@ -92,6 +148,8 @@ position = Vector2(1986, 1720)
 
 [node name="Marker2D5" type="Marker2D" parent="NavigationRegion2D/PatrolBelle" unique_id=1011223478]
 position = Vector2(-492, 2229)
+
+[node name="Node2D" type="Node2D" parent="NavigationRegion2D" unique_id=1493982515]
 
 [node name="ThisGuy3" parent="NavigationRegion2D" unique_id=1701589375 instance=ExtResource("3_swvm1")]
 position = Vector2(-650, -127)
