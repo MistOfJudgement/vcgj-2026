@@ -4,8 +4,13 @@ signal clicked
 @export var sprite: Sprite2D
 @export var destinationArea: Control
 @export_color_no_alpha var flashColor: Color = Color.BLUE
+@export var tex: Texture
 var in_range: bool = false
 var tween: Tween
+
+func _ready() -> void:
+	if tex:
+		sprite.texture = tex
 func _process(_delta: float) -> void:
 	if in_range:
 		flash()

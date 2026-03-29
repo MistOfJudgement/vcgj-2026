@@ -27,3 +27,7 @@ func _process(delta: float) -> void:
 		sprite.flip_h = not sprite.flip_h
 
 	move_and_slide()
+
+func show_gun():
+	print("GUNNNNNNN")
+	$Sprite2D2.visible = true

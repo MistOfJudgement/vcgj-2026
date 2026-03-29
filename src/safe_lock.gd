@@ -32,7 +32,7 @@ func reset():
 	label.text = ""
 func check_answer():
 	if label.text == answer:
-		InventoryManager.instance.collected_gun = true
+		InventoryManager.instance.collect_gun()
 		self.visible = false
 
 

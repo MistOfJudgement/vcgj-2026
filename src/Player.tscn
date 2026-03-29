@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://clvx2qi4ehgpj" path="res://Player.gd" id="1_d08hv"]
 [ext_resource type="Texture2D" uid="uid://ccd6ncmvus3xo" path="res://onyx.png" id="2_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://deobqejkwkvlu" path="res://gun.png" id="3_kne1u"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kpjcp"]
 radius = 40.0
@@ -18,3 +19,8 @@ shape = SubResource("CapsuleShape2D_kpjcp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1280613680]
 texture = ExtResource("2_kpjcp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D" unique_id=1027967596]
+visible = false
+position = Vector2(50, -5)
+texture = ExtResource("3_kne1u")

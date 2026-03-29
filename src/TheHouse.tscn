@@ -12,6 +12,9 @@
 [ext_resource type="Script" uid="uid://dwhyrhwjbu8ew" path="res://clue_manager.gd" id="6_r0heo"]
 [ext_resource type="Texture2D" uid="uid://ciyripl2auo13" path="res://suspect/chaz.png" id="9_1nbfr"]
 [ext_resource type="Texture2D" uid="uid://c4viojqk4wk7y" path="res://suspect/bella.png" id="9_pxhri"]
+[ext_resource type="Texture2D" uid="uid://ceat02b32gra8" path="res://suspect/reginald.png" id="11_a7k6o"]
+[ext_resource type="Texture2D" uid="uid://dv5bfn2akjs70" path="res://safe.png" id="12_32cxu"]
+[ext_resource type="Texture2D" uid="uid://dtqxhdnoc4tol" path="res://suspect/macintosh.png" id="12_lf5on"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_r0heo"]
 vertices = PackedVector2Array(-509.53125, 770.46875, -509.53125, 1218.4688, -514.46875, 1021.53125, -514.46875, 770.46875, -194.46875, -194.46875, 450.46875, -258.46875, 1346.4688, -258.46875, 1149.5313, -125.53125, -834.46875, -125.53125, 1149.5313, 1597.5313, 1213.5313, 1602.4688, 1026.4688, 1602.4688, 1021.53125, 1597.5313, 765.53125, -514.46875, 1346.4688, -445.53125, 450.46875, -445.53125, 450.46875, -514.46875, 1213.5313, -1218.4688, 1538.4688, -1282.4688, 1666.4688, -1282.4688, 1666.4688, -1149.5313, 1218.4688, -1149.5313, 1469.5313, -1282.4688, 1218.4688, -1282.4688, 1213.5313, -1469.5313, 1218.4688, -1533.5313, 317.53125, -322.46875, -61.53125, -322.46875, 1021.53125, 2237.5313, 1026.4688, 2306.4688, -194.46875, -701.53125, -61.53125, -893.53125, 834.46875, 1661.5313, 834.46875, 2237.5313, 573.53125, 2109.5313, 573.53125, 1794.4688, 381.53125, 1661.5313, 381.53125, 1789.5313, -317.53125, 1794.4688, -125.53125, 1789.5313, 317.53125, -893.53125, 450.46875, -957.53125, 1218.4688, -962.46875, 1346.4688, -962.46875, 765.53125, -957.53125, -642.46875, 2306.4688, -317.53125, 2109.5313, -642.46875, 1666.4688, -706.46875, 1218.4688, -706.46875, 1154.4688, -829.53125, 1021.53125, -834.46875, 1154.4688, -834.46875, 770.46875, -829.53125, 770.46875, 1538.4688, -1602.4688, 1469.5313, -1533.5313, 1315.4609, -1602.4688, 957.53125, -1596.2031, 2114.4688, 509.53125, 2114.4688, 1026.4688, 1794.4688, 1026.4688, 1533.5313, 578.46875, 1794.4688, 1218.4688, 1533.5313, 1218.4688, 1346.4688, 509.53125, 1346.4688, 578.46875, 1533.5313, 2301.5313, 1533.5313, 2173.5313, 1789.5313, 2173.5313, 2114.4688, 2306.4688, 1789.5313, 1922.4688, 1533.5313, 1922.4688, 1533.5313, 1597.5313, 1986.4688, 1597.5313, 1986.4688, 1917.5313, 2114.4688, 1917.5313, -578.46875, 701.53125, -578.46875, 573.53125, -381.53125, 573.53125, -381.53125, 770.46875, -1021.53125, 701.53125, -1021.53125, 770.46875, -125.53125, 1661.5313, 962.46875, -1469.5313, 957.53125, -1213.5313, 962.46875, -1218.4688, 1149.5313, -1213.5313, 1149.5313, -1026.4688, -1154.4688, -1026.4688, -834.46875, 1661.5313, -829.53125, 1666.4688, -834.46875, 2237.5313, -829.53125, 2306.4688, -1154.4688, 2306.4688, -1021.53125, 2237.5313, -1021.53125, -957.53125, 1213.5313, 2306.4688, 1346.4688, 2301.5313, -509.53125, -194.46875, -834.46875, -770.46875, -509.53125, -701.53125, -194.46875, -770.46875, -194.46875, -957.53125)
@@ -34,6 +37,7 @@ visible = false
 
 [node name="SafeLock" parent="CanvasLayer" unique_id=1989305654 instance=ExtResource("6_mjmsh")]
 visible = false
+answer = "1231"
 
 [node name="PauseButton" type="Button" parent="CanvasLayer" unique_id=1386384697]
 anchors_preset = 1
@@ -78,6 +82,88 @@ position = Vector2(1492.0001, 1686)
 scale = Vector2(0.9, 0.9)
 patrolNodeParent = NodePath("../PatrolBelle")
 tex = ExtResource("9_pxhri")
+
+[node name="Patrol" type="Node2D" parent="NavigationRegion2D" unique_id=1481918851]
+
+[node name="Reginald" parent="NavigationRegion2D" unique_id=1701589375 node_paths=PackedStringArray("patrolNodeParent") instance=ExtResource("3_swvm1")]
+position = Vector2(-515, 724)
+scale = Vector2(0.9, 0.9)
+patrolNodeParent = NodePath("../PatrolReginald")
+tex = ExtResource("11_a7k6o")
+
+[node name="Macintosh" parent="NavigationRegion2D" unique_id=1755621107 node_paths=PackedStringArray("patrolNodeParent") instance=ExtResource("3_swvm1")]
+position = Vector2(2003.0001, 620)
+scale = Vector2(0.9, 0.9)
+patrolNodeParent = NodePath("../PatrolMac")
+tex = ExtResource("12_lf5on")
+
+[node name="PatrolReginald" type="Node2D" parent="NavigationRegion2D" unique_id=84002554]
+
+[node name="Marker2D" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=665129710]
+position = Vector2(-510, 766)
+
+[node name="Marker2D2" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=1978090151]
+position = Vector2(-544, 1135)
+
+[node name="Marker2D3" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=1360564501]
+position = Vector2(-835, 1012)
+
+[node name="Marker2D4" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=1626396137]
+position = Vector2(-720, 755)
+
+[node name="Marker2D5" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=1028753041]
+position = Vector2(-510, 766)
+
+[node name="Marker2D6" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=1541238949]
+position = Vector2(-544, 1135)
+
+[node name="Marker2D7" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=1537841424]
+position = Vector2(-835, 1012)
+
+[node name="Marker2D8" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=1214207333]
+position = Vector2(-720, 755)
+
+[node name="Marker2D9" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=14519883]
+position = Vector2(-510, 766)
+
+[node name="Marker2D10" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=2145176722]
+position = Vector2(-544, 1135)
+
+[node name="Marker2D11" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=2086812111]
+position = Vector2(-835, 1012)
+
+[node name="Marker2D12" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=1859390012]
+position = Vector2(-720, 755)
+
+[node name="Marker2D13" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=986874564]
+position = Vector2(-510, 766)
+
+[node name="Marker2D14" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=1718850812]
+position = Vector2(-544, 1135)
+
+[node name="Marker2D15" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=183722998]
+position = Vector2(-835, 1012)
+
+[node name="Marker2D16" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=147307179]
+position = Vector2(-720, 755)
+
+[node name="Marker2D17" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=711767457]
+position = Vector2(-390, -707)
+
+[node name="Marker2D18" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=1657015891]
+position = Vector2(-567, -175)
+
+[node name="Marker2D19" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=927308715]
+position = Vector2(-175, -370)
+
+[node name="Marker2D20" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=1882518973]
+position = Vector2(-309, -715)
+
+[node name="Marker2D21" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=2011433415]
+position = Vector2(-574, -501)
+
+[node name="Marker2D22" type="Marker2D" parent="NavigationRegion2D/PatrolReginald" unique_id=934423182]
+position = Vector2(-364, -162)
 
 [node name="PatrolChaz" type="Node2D" parent="NavigationRegion2D" unique_id=2027374457]
 
@@ -149,11 +235,33 @@ position = Vector2(1986, 1720)
 [node name="Marker2D5" type="Marker2D" parent="NavigationRegion2D/PatrolBelle" unique_id=1011223478]
 position = Vector2(-492, 2229)
 
-[node name="Node2D" type="Node2D" parent="NavigationRegion2D" unique_id=1493982515]
+[node name="PatrolMac" type="Node2D" parent="NavigationRegion2D" unique_id=1493982515]
+position = Vector2(2022, 940)
 
-[node name="ThisGuy3" parent="NavigationRegion2D" unique_id=1701589375 instance=ExtResource("3_swvm1")]
-position = Vector2(-650, -127)
-scale = Vector2(0.9, 0.9)
+[node name="Marker2D" type="Marker2D" parent="NavigationRegion2D/PatrolMac" unique_id=143340091]
+
+[node name="Marker2D2" type="Marker2D" parent="NavigationRegion2D/PatrolMac" unique_id=1986959424]
+position = Vector2(-422, 2)
+
+[node name="Marker2D3" type="Marker2D" parent="NavigationRegion2D/PatrolMac" unique_id=1104118611]
+position = Vector2(-427, -359)
+
+[node name="Marker2D4" type="Marker2D" parent="NavigationRegion2D/PatrolMac" unique_id=704163748]
+position = Vector2(-24, -366)
+
+[node name="Marker2D5" type="Marker2D" parent="NavigationRegion2D/PatrolMac" unique_id=1295553868]
+
+[node name="Marker2D6" type="Marker2D" parent="NavigationRegion2D/PatrolMac" unique_id=1047708807]
+position = Vector2(-422, 2)
+
+[node name="Marker2D7" type="Marker2D" parent="NavigationRegion2D/PatrolMac" unique_id=1608595216]
+position = Vector2(-427, -359)
+
+[node name="Marker2D8" type="Marker2D" parent="NavigationRegion2D/PatrolMac" unique_id=1489862133]
+position = Vector2(-765, -1855)
+
+[node name="Marker2D9" type="Marker2D" parent="NavigationRegion2D/PatrolMac" unique_id=1518899324]
+position = Vector2(-1619, -1935)
 
 [node name="Clue1" parent="NavigationRegion2D" unique_id=407064830 node_paths=PackedStringArray("destinationArea") instance=ExtResource("4_yq4or")]
 position = Vector2(2093, 1820)
@@ -234,6 +342,7 @@ destinationArea = NodePath("../../CanvasLayer/PauseButton")
 
 [node name="Safe" parent="NavigationRegion2D" unique_id=1532287082 instance=ExtResource("4_yq4or")]
 position = Vector2(1622, 1249)
+tex = ExtResource("12_32cxu")
 
 [node name="InventoryManager" type="Node2D" parent="NavigationRegion2D" unique_id=1979203131]
 script = ExtResource("6_r0heo")
@@ -256,3 +365,4 @@ position = Vector2(1929, 778)
 [connection signal="clicked" from="NavigationRegion2D/Safe" to="CanvasLayer/SafeLock" method="_on_safe_clicked"]
 [connection signal="clue_collected" from="NavigationRegion2D/InventoryManager" to="CanvasLayer/PauseScreen" method="_on_inventory_manager_clue_collected"]
 [connection signal="game_over" from="NavigationRegion2D/InventoryManager" to="CanvasLayer/Panel2" method="_on_inventory_manager_game_over"]
+[connection signal="gun_get" from="NavigationRegion2D/InventoryManager" to="NavigationRegion2D/Player" method="show_gun"]
