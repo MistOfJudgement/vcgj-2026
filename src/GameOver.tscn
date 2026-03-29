@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ckou5yk825ipt" path="res://game_over.gd" id="1_a1htc"]
 [ext_resource type="Texture2D" uid="uid://biv6swrhjxbb4" path="res://lose.png" id="2_eksk4"]
 [ext_resource type="Texture2D" uid="uid://c675yfxww6dhc" path="res://WIN.png" id="2_xl4ts"]
+[ext_resource type="Theme" uid="uid://dmhmeu371deqa" path="res://TheTheme.tres" id="4_jywu3"]
 
 [node name="Panel" type="Panel" unique_id=95050873 node_paths=PackedStringArray("rich_text_label")]
 anchors_preset = 15
@@ -44,28 +45,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="GameOver" unique_id=1116558642]
+[node name="Panel" type="PanelContainer" parent="GameOver" unique_id=780454857]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 6
 size_flags_stretch_ratio = 0.37
 
 [node name="RichTextLabel" type="RichTextLabel" parent="GameOver/Panel" unique_id=1943624358]
+clip_contents = false
 custom_minimum_size = Vector2(250, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -11.5
-offset_right = 125.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("4_jywu3")
+theme_override_font_sizes/normal_font_size = 38
 text = "You couldn't escape! RIP."
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 

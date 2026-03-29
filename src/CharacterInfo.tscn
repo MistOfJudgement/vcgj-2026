@@ -4,21 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://ciyripl2auo13" path="res://suspect/chaz.png" id="1_k577m"]
 [ext_resource type="Texture2D" uid="uid://c4viojqk4wk7y" path="res://suspect/bella.png" id="2_62p1r"]
 [ext_resource type="Texture2D" uid="uid://ceat02b32gra8" path="res://suspect/reginald.png" id="3_t13i1"]
+[ext_resource type="LabelSettings" uid="uid://cjmm03h7rqpdw" path="res://characterinfo.tres" id="3_uvhd1"]
 [ext_resource type="Texture2D" uid="uid://dtqxhdnoc4tol" path="res://suspect/macintosh.png" id="4_uvhd1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ssa1u"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_alj0r"]
-font_size = 15
-
-[sub_resource type="LabelSettings" id="LabelSettings_qaww8"]
-font_size = 15
-
-[sub_resource type="LabelSettings" id="LabelSettings_k577m"]
-font_size = 15
-
-[sub_resource type="LabelSettings" id="LabelSettings_t13i1"]
-font_size = 15
 
 [sub_resource type="LabelSettings" id="LabelSettings_62p1r"]
 font_color = Color(1, 1, 0, 1)
@@ -31,18 +20,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_62p1r")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=630240308]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1807349765]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+offset_left = 19.0
+offset_top = -346.5
+offset_right = -16.0
+offset_bottom = 346.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1284833656]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=630240308]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=674362295]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1284833656]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=674362295]
 custom_minimum_size = Vector2(38.79, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -50,84 +47,88 @@ text = "At 8 PM last night, your father, ZIRQUADECIM VIOQUALIA-FISHER was murder
 label_settings = SubResource("LabelSettings_ssa1u")
 autowrap_mode = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1577566800]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1577566800]
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=736903148]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=736903148]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1504506622]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1504506622]
 layout_mode = 2
 texture = ExtResource("1_k577m")
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=20618353]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=20618353]
 layout_mode = 2
 size_flags_vertical = 1
 text = "CHAZ CARNEFELLOW, DAY TRADER AND FATHER OF THREE.
 Patriarch of the Carnefellow Family, slowly throwing away their fortune on random companies in the stock exchange
 Favorite Drink: Perrier Martini (Don’t Ask)
 Favorite Time of Day: Money
-Favorite Word: Chauvanism"
-label_settings = SubResource("LabelSettings_alj0r")
+Favorite Word: Chauvinism"
+label_settings = ExtResource("3_uvhd1")
 autowrap_mode = 3
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1690061094]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1690061094]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=2102398634]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=2102398634]
 layout_mode = 2
 texture = ExtResource("2_62p1r")
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=990810812]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=990810812]
 layout_mode = 2
 text = "BELLA CARNEFELLOW, VICTORIAN NOBLE???
 Daughter of Chaz Carnefellow with a confusing fashion sense and a penchant for lying
 Favorite Drink: Hard Whiskey, but only when nobody is watching
 Favorite Time of Day: 3 PM
 Favorite Word: Subterfuge"
-label_settings = SubResource("LabelSettings_qaww8")
+label_settings = ExtResource("3_uvhd1")
 autowrap_mode = 3
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1864958982]
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1864958982]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=563630834]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=563630834]
 layout_mode = 2
 texture = ExtResource("3_t13i1")
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1592396230]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1592396230]
 layout_mode = 2
 text = "REGINALD CARNEFELLOW, FREELANCE CYBERSECURITY SPECIALIST
 Sibling of Bella Carnefellow, a quiet kid with an active mind and not much to say. It’s always the quiet ones…
 Favorite Drink: Milk
 Favorite Time of Day: Whenever everybody else is asleep
 Favorite Word: Solitude"
-label_settings = SubResource("LabelSettings_k577m")
+label_settings = ExtResource("3_uvhd1")
 autowrap_mode = 3
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1158907752]
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1158907752]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=1934401816]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=1934401816]
 layout_mode = 2
 texture = ExtResource("4_uvhd1")
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=1772459022]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=1772459022]
 layout_mode = 2
 text = "MACINTOSH CARNEFELLOW, BODYBUILDER AND BLUE COLLAR LARPER
 Son of Chaz Carnefellow, a man’s man by extreme intent. Pretends to have a job in the labor force
 Favorite Drink: Hard Whiskey, but only when someone is watching
 Favorite Time of Day: 6 AM
 Favorite Word: Hard Whiskey, but only when someone is watching"
-label_settings = SubResource("LabelSettings_t13i1")
+label_settings = ExtResource("3_uvhd1")
 autowrap_mode = 3
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1197293894]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1197293894]
 custom_minimum_size = Vector2(38.79, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -136,8 +137,8 @@ label_settings = SubResource("LabelSettings_62p1r")
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Start" type="Button" parent="VBoxContainer" unique_id=1050208547]
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1050208547]
 layout_mode = 2
 text = "Start Game"
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]

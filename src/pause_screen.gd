@@ -7,11 +7,12 @@ func _ready() -> void:
 	visibility_changed.connect(on_visible_changed)
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
-		if event.is_pressed() and event.keycode == KEY_ESCAPE:
+		if event.is_pressed() and event.keycode == KEY_TAB:
 			visible = !visible
 
 func on_visible_changed():
 	InventoryManager.instance.paused = visible
+	Engine.time_scale = 0 if visible else 1
 
 
 func build_clue(str: String):
@@ -38,6 +39,7 @@ func _on_resume_pressed() -> void:
 
 func _on_pause_button_pressed() -> void:
 	visible = !visible
+	
 
 
 func _on_inventory_manager_game_over() -> void:

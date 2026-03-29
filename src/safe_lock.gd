@@ -36,9 +36,12 @@ func check_answer():
 		InventoryManager.instance.collect_gun()
 		self.visible = false
 		InventoryManager.instance.paused = false
+		Engine.time_scale = 1
 
 
 func _on_safe_clicked() -> void:
 	if InventoryManager.instance.collected_gun: return
 	visible = true
 	InventoryManager.instance.paused = true
+	Engine.time_scale = 0
+	

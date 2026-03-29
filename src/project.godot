@@ -19,6 +19,11 @@ config/icon="uid://dv5bfn2akjs70"
 
 Audio="*uid://ckbg6luj1fbgo"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [gui]
 
 theme/custom="uid://dmhmeu371deqa"
