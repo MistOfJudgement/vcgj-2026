@@ -15,6 +15,7 @@ $Node2D/RayCast2D, $Node2D/RayCast2D2, $Node2D/RayCast2D3
 
 @onready var sprite = $Sprite2D
 @onready var facingRoot = $Node2D
+@onready var killZone: Area2D = $KillZone
 
 enum NpcState {
 	Patrol,
@@ -47,8 +48,11 @@ func start_patrol() -> void:
 #func _draw() -> void:
 	#draw_line(Vector2.ZERO, get_angle() * Vector2.UP * 250, Color.ALICE_BLUE)
 func _process(_delta: float) -> void:
-	if InventoryManager.instance.paused: return
+	if InventoryManager.instance.paused:
+		sprite.modulate = Color.WHITE
+		return
 	sprite.flip_h =  get_dir().x < 0
+	_update_shoot_flash()
 	match currentState:
 		NpcState.Patrol:
 			#print("patrolling")
@@ -121,7 +125,7 @@ func turn(angle: float, turnSpeed: float = 0.3):
 	tween = create_tween()
 	tween.tween_property(facingRoot, "rotation", lerp_angle(facingRoot.rotation, angle, 1), turnSpeed)
 	
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	InventoryManager.instance.set_game_over("You were caught by %s" % name)
 
 
@@ -129,25 +133,51 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	objectsInScanRegion.remove_at(objectsInScanRegion.find(body))
 
 
-func _on_kill_zone_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_kill_zone_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
-		if event.pressed and InventoryManager.instance and InventoryManager.instance.collected_gun:
-			var player = get_tree().get_first_node_in_group("Player") as Node2D
-			var space_state = get_world_2d().direct_space_state
-			var query = PhysicsRayQueryParameters2D.create(player.global_position, global_position)
-			query.collision_mask = 1 << 0 # only collide with the default layer
-			# if no obstacles in the way, win
-			if not space_state.intersect_ray(query):
-				if isTarget:
-					InventoryManager.instance.set_game_over("You WIN. You brought your father back to life by shooting his killer!")
-				else:
-					InventoryManager.instance.set_game_over("You LOSE. %s wasn't your father's killer" % name)
+		if event.pressed:
+			_try_shoot()
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_E:
+		_try_shoot()
+
+func _try_shoot() -> void:
+	if not InventoryManager.instance or not InventoryManager.instance.collected_gun or InventoryManager.instance.is_game_over():
+		return
+	var player = get_tree().get_first_node_in_group("Player") as Node2D
+	if player == null:
+		return
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(player.global_position, global_position)
+	query.collision_mask = 1 << 0 # only collide with the default layer
+	# if no obstacles in the way, win
+	if not space_state.intersect_ray(query):
+		if isTarget:
+			InventoryManager.instance.set_game_over("You WIN. You brought your father back to life by shooting his killer!")
+		else:
+			InventoryManager.instance.set_game_over("You LOSE. %s wasn't your father's killer" % name)
 
 
 func _on_kill_zone_mouse_entered() -> void:
-	if InventoryManager.instance and InventoryManager.instance.collected_gun:
-		sprite.modulate = Color.RED
+	pass
 
 
 func _on_kill_zone_mouse_exited() -> void:
-	sprite.modulate = Color.WHITE
+	pass
+
+func _update_shoot_flash() -> void:
+	if not InventoryManager.instance or not InventoryManager.instance.collected_gun:
+		sprite.modulate = Color.WHITE
+		return
+	var player = get_tree().get_first_node_in_group("Player") as Node2D
+	if player == null or not _has_line_of_sight(player):
+		sprite.modulate = Color.WHITE
+		return
+	sprite.modulate = Color.RED
+
+func _has_line_of_sight(player: Node2D) -> bool:
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(player.global_position, global_position)
+	query.collision_mask = 1 << 0 # only collide with the default layer
+	return not space_state.intersect_ray(query)

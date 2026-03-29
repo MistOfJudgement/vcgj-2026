@@ -18,7 +18,9 @@ func _ready() -> void:
 	buttons[10].text = "0"
 	buttons[10].pressed.connect(func (): button_press(0))
 	buttons[11].text = "Exit"
-	buttons[11].pressed.connect(func (): visible = false)
+	buttons[11].pressed.connect(func (): 
+		visible = false
+		Engine.time_scale=1)
 	
 	
 func _process(delta: float) -> void:

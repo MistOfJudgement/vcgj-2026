@@ -29,15 +29,15 @@ agent_radius = 61.53
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=749260547]
 
+[node name="SafeLock" parent="CanvasLayer" unique_id=1989305654 instance=ExtResource("6_mjmsh")]
+visible = false
+answer = "1231"
+
 [node name="Panel2" parent="CanvasLayer" unique_id=95050873 instance=ExtResource("4_d2m2k")]
 visible = false
 
 [node name="PauseScreen" parent="CanvasLayer" unique_id=1622059927 instance=ExtResource("1_6byqa")]
 visible = false
-
-[node name="SafeLock" parent="CanvasLayer" unique_id=1989305654 instance=ExtResource("6_mjmsh")]
-visible = false
-answer = "1231"
 
 [node name="PauseButton" type="Button" parent="CanvasLayer" unique_id=1386384697]
 offset_right = 136.0

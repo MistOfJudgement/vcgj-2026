@@ -1,4 +1,5 @@
 extends Node2D
+
 signal clicked
 @export_multiline() var text: String
 @export var sprite: Sprite2D
@@ -11,6 +12,7 @@ var tween: Tween
 func _ready() -> void:
 	if tex:
 		sprite.texture = tex
+
 func _process(_delta: float) -> void:
 	if in_range:
 		flash()
@@ -36,12 +38,21 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
-		if event.pressed and in_range:
-			if text != "": # random hardcode for safe stuff
-				InventoryManager.instance.collect_clue(self.name, text)
-				animate_out()
-			else:
-				clicked.emit()
+		if event.pressed:
+			_interact()
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_E:
+		_interact()
+
+func _interact() -> void:
+	if not in_range or tween != null:
+		return
+	if text != "": # random hardcode for safe stuff
+		InventoryManager.instance.collect_clue(self.name, text)
+		animate_out()
+	else:
+		clicked.emit()
 
 func animate_out():
 	if destinationArea == null:

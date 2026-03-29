@@ -8,7 +8,7 @@ class_name Player
 
 
 func _process(delta: float) -> void:
-	if InventoryManager.instance.is_game_over() or InventoryManager.instance.paused:
+	if InventoryManager.instance.is_game_over() or InventoryManager.instance.paused or Engine.time_scale == 0:
 		return
 	var vel: Vector2 = Vector2.ZERO
 	if Input.is_key_pressed(KEY_A):
@@ -25,6 +25,8 @@ func _process(delta: float) -> void:
 	velocity = vel.normalized() * speed
 	if (sprite.flip_h and velocity.x > 0) or (not sprite.flip_h and velocity.x < 0):
 		sprite.flip_h = not sprite.flip_h
+		$Sprite2D/Sprite2D2.position.x = -$Sprite2D/Sprite2D2.position.x
+		$Sprite2D/Sprite2D2.flip_h = sprite.flip_h
 
 	move_and_slide()
 
