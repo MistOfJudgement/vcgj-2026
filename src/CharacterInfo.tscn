@@ -10,6 +10,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_ssa1u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_62p1r"]
+font_size = 26
 font_color = Color(1, 1, 0, 1)
 
 [node name="CharacterInfo" type="Panel" unique_id=1230768341]
@@ -132,7 +133,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(38.79, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "WASD to Move. ESC to pause and read notes. Left Click to interact."
+text = "WASD to Move. TAB to pause and read notes. Left Click or E to interact."
 label_settings = SubResource("LabelSettings_62p1r")
 horizontal_alignment = 1
 autowrap_mode = 3
