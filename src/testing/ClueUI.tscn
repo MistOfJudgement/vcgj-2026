@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://iu6g6sktjv6s"]
+
+[node name="ClueUi" type="Control" unique_id=1378010933]
+layout_mode = 3
+anchor_right = 0.509
+anchor_bottom = 0.42700002
+offset_right = -0.36798096
+offset_bottom = 0.3039856
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="." unique_id=628892633]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1957535241]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 15.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Dear Diary,
+	Father is unreasonably asking me to hide this strange safe in my room
+again. Supposedly it contains something important in it that he needs
+to keep the family safe. Surely if it was so important he could have
+told me what was in it? I just know he approached me at 9 PM last
+night with the safe in hand, and told me I must not let anybody
+access it. I fear for what this could mean for him. But he is a man.
+He can fight his own battles.
+- Macintosh"
+fit_content = true

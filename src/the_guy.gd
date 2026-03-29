@@ -26,7 +26,9 @@ func _ready() -> void:
 	waitTimer.start(waitTime)
 	initRotation = rotation
 func start_patrol() -> void:
+	if not patrolNodeParent: return
 	patrolIndex += 1
+	
 	if patrolIndex >= patrolNodeParent.get_child_count(): patrolIndex = 0
 	if patrolNodeParent.get_child_count() > 0:
 		print("at index", patrolIndex)
@@ -38,26 +40,39 @@ func _draw() -> void:
 func _process(_delta: float) -> void:
 	match currentState:
 		NpcState.Patrol:
+			#print("patrolling")
 			if is_moving():
 				navMove()
 			var scanResult = scan_for_player()
 			if scanResult:
 				enter_chase(scanResult)
 		NpcState.Chase:
+			#print("chasing")
 			NavAgent.target_position = lastSeen
+			waitTimer.stop()
+			if is_moving():
+				navMove(0.1)
+			var scanResult = scan_for_player()
+			if not scanResult:
+				if NavAgent.is_navigation_finished():
+					currentState = NpcState.Patrol
+					start_patrol()
+			else:
+				lastSeen = scanResult.global_position
+
 			
-		NpcState.Return:
-			pass
-func scan_for_player() -> Player:
+func scan_for_player() -> CollisionObject2D:
 	#rn just raycast
 	for ray in raychecks:
 		ray.force_raycast_update()
 		if ray.is_colliding():
+			print("ray hit something")
 			var collider = ray.get_collider()
-			if collider is Player:
+			if collider.is_in_group("Player"):
 				return collider
+	#print("no player found")
 	return null
-func enter_chase(target: Player):
+func enter_chase(target: CollisionObject2D) -> void:
 	print("Enter Chase")
 	currentState = NpcState.Chase
 	chaseTarget = target
@@ -92,8 +107,8 @@ func navMove(turnSpeed = 0.3):
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body not in objectsInScanRegion:
-		objectsInScanRegion.append(body)
+	pass
+	#this is the kill zeon
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

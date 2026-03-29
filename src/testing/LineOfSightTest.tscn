@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://duxm54mgdtki1" path="res://icon.svg" id="1_lnp5s"]
 [ext_resource type="PackedScene" uid="uid://c3x6smsyb2ydn" path="res://Player.tscn" id="2_dnft3"]
 [ext_resource type="PackedScene" uid="uid://dou6c1gp41kwk" path="res://NotPlayer.tscn" id="3_7mki8"]
+[ext_resource type="PackedScene" uid="uid://cqrdlb1t68g4o" path="res://ClueInteractable.tscn" id="4_3wrrq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dnft3"]
 vertices = PackedVector2Array(1104.8672, 601.96094, 35.0625, 598.03125, 38.929688, 32.96875, 1098.1094, 30.023438)
@@ -69,3 +70,6 @@ position = Vector2(925, 117)
 
 [node name="Node2D2" type="Node2D" parent="Node" unique_id=1448745707]
 position = Vector2(967, 494)
+
+[node name="ClueInteractable" parent="." unique_id=1230103675 instance=ExtResource("4_3wrrq")]
+position = Vector2(74, 49)
